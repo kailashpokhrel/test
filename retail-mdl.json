@@ -1,0 +1,520 @@
+{
+  "metadata":{
+    "dimensions":{
+      "organization":{
+        "name":"Organization",
+        "attributes":{
+          "store":{
+            "name":"Store",
+            "description":"store id and store description",
+            "definition":"store id and store description",
+            "hidden":"true"
+          },
+          "region":{
+            "name":"Region",
+            "definition":"Region id and region description",
+            "description":"Region id and region description"
+          },
+          "district":{
+            "name":"District",
+            "definition":"District id and District description",
+            "description":"District id and District description"
+          },
+          "chain":{
+            "name":"Chain",
+            "definition":"Chain ID and Chain Description",
+            "description":"Chain ID and Chain Description"
+          },
+          "area":{
+            "name":"Area",
+            "definition":"Area ID and Area Description",
+            "description":"Area ID and Area Description"
+          }
+        }
+      },
+      "Product":{
+        "name":"Product",
+        "attributes":{
+          "subclass": {
+            "name":"Subclass",
+            "synonyms": ["subcateogry"],
+            "definition": "subclass id, subclass description, class id, class description, department id and department description",
+            "description":"subclass id, subclass description, class id, class description, department id and department description"
+          },
+          "class": {
+            "name":"Class",
+            "synonyms": ["category"],
+            "definition": "class id, class description, department id and department description",
+            "description": "class id, class description, department id and department description"
+          },
+          "department": {
+            "name":"department",
+            "definition": "department id and department description",
+            "description":  "department id and department description"
+          },
+          "divison": {
+            "name":"Division",
+            "definition": "division id and division description",
+            "description": "division id and division description"
+          }
+        }
+      }
+    },
+    "metrics":{
+      "sales":{
+        "name":"Sales",
+        "attributes":{
+          "profit":{
+            "name":"Profit",
+            "synonyms":["margin", "total profit", "total margin", "net profit"],
+            "description":"profit is the difference of sales amount to the cost amount",
+            "definition": "profit is the difference of sales amount to the cost amount",
+            "calculation": "sales_amount-cost_amount",
+            "hidden":"false"
+          },
+          "total sales":{
+              "name":"Total Sales",
+              "synonyms":["net sales", "sales"],
+              "description":"sales amount and quantity",
+              "definition":"sales amount and quantity",
+              "hidden":"false"
+          },
+          "clearance sales": {
+            "name":"Clearance Sales",
+            "synonyms": ["Stock Clearance Sales", "Inventory Clearance Sales"],
+            "definition": "clearance sales amount and quantity",
+            "description": "clearance sales amount and quantity"
+          },
+          "promotional sales": {
+            "name":"Promotional sales",
+            "definition": "promotional sales amount and quantity",
+            "description": "promotional sales amount and quantity"
+          },
+          "regular sales": {
+            "name":"Regular Sales",
+            "definition": "regular sales amount and quantity",
+            "description": "regular sales amount and quantity"
+          },
+          "regular profit": {
+            "name":"Regular Profit",
+            "synonyms" : ["regular margin", "regular profit", "total regular profit"],
+            "definition": "regular profit is the difference of regular sales amount to the regular cost amount",
+            "description":"regular profit is the difference of regular sales amount to the regular cost amount",
+            "calculation": "regular sales amount-regular cost amount"
+            }
+          },
+          "clearance profit": {
+            "name":"Clearance Profit",
+            "synonyms" : ["clearance margin", "clearance profit", "total clearance profit"],
+            "definition": "clearance profit is the difference of clearance sales amount to the clearance cost amount",
+            "description": "clearance profit is the difference of clearance sales amount to the clearance cost amount",
+            "calculation": "clearance sales amount-clearance cost amount"
+          },
+          "promotional profit": {
+            "name":"Promotional Profit",
+            "synonyms" : ["promotional margin", "promotional profit", "total promotional profit"],
+            "definition": "promotional profit is the difference of promotional sales amount to the promotional cost amount",
+            "description": "promotional profit is the difference of promotional sales amount to the promotional cost amount",
+            "calculation": "promotional sales amount-promotional cost amount"
+          },
+          "loss": {
+            "name":"Loss",
+            "definition": "loss is the profit with negative values",
+            "description":"loss is the profit with negative values"
+          },
+          "profit to sales ratio": {
+            "name":"Profit to sales Ratio",
+            "synonyms": ["ratio of profit and sales"],
+            "definition": "profit to sales ratio is profit amount divided by sales amount",
+            "description": "profit to sales ratio is profit amount divided by sales amount",
+            "calculation" : "profit amount/sales amount"
+          },
+          "contribution": {
+            "name":"Contribution",
+            "definition": "individual value divided by total",
+            "description": "individual value divided by total"
+
+          },
+          "% Return Amount by sales":{
+            "name":"% Return Amount by sales",
+            "synonyms":["Percentage Return Amount by sales"],
+            "definition":"It should return the percentage of return amount by sales",
+            "description":"It should return the percentage of return amount by sales",
+            "calculation":"RETURN_SALES_AMOUNT/SALES_AMOUNT*100"
+          },
+          "Average Net Retail":{
+            "name":"Average Net Retail",
+            "definition":"This is the average retail price of sold items.",
+            "description":"This is the average retail price of sold items."
+          },
+          "Net Clearance Profit":{
+            "name":"Net Clearance Profit",
+            "definition":"This is the difference of sales amount and cost amount for clearance price items.",
+            "description":"This is the difference of sales amount and cost amount for clearance price items.",
+            "calculation":"clearance_sales_amount-clearance cost amount"
+          },
+          "Net clearance sales amount":{
+            "name":"Net Clearance Sales amount",
+            "definition":"This is the total clearance sales amount.",
+            "description":"This is the total clearance sales amount."
+          },
+          "Net Clearance sales quantity":{
+            "name":"Net Clearance Sales Quanntity",
+            "definition":"This is the total clearance sales quantity",
+            "description":"This is the total clearance sales quantity"
+
+          },
+          "var":{
+            "name":"Var",
+            "synonyms":["variance"],
+            "definition":"difference of sales of this period and the mentioned period",
+            "department":"difference of sales of this period and the mentioned period"
+          },
+          "Net Employee Discount":{
+            "name":"Net Employee Discount",
+            "definition":"Employee_discount_amount",
+            "description":"Employee_discount_amount"
+
+          }
+        },
+        "inventory positions":{
+          "name":"Inventory Positions",
+          "attributes":{
+            "On Hand Quantity":{
+              "name":"On Hand Quantity",                
+              "synonyms": ["Stock Quantity", "Inventory On Hand"],
+              "definition": "Inventory On Hand Quantity",
+              "description": "Inventory On Hand Quantity"
+
+            },
+            "On Hand Cost":{
+              "name":"On Hand Cost",
+              "synonyms": ["Stock on Hand Cost", "Stock on Hand Cost Amount", "Inventory On Hand Cost", "Inventory On Hand Cost Amount"],
+              "definition": "Inventory On Hand Cost Amount",
+              "description": "Inventory On Hand Cost Amount"
+
+            },
+            "On Hand Retail":{
+              "name":"On Hand Retail",
+              "synonyms": ["Stock on Hand Retail", "Stock on Hand Retail Amount", "Inventory On Hand Retail", "Inventory On Hand Retail Amount"],
+              "definition": "Inventory On Hand Amount",
+              "description": "Inventory On Hand Amount"
+
+            },
+            "In Transit Quantity": {
+              "name":"In Transit Quanatity",
+              "synonyms": ["In Transit Quantities"],
+              "definition": "Inventory In Transit Quantity",
+              "description": "Inventory In Transit Quantity"
+
+            },
+            "On Order Quantity": {
+              "name":"On Order Quantity",
+              "synonyms": ["On Order Quantities"],
+              "definition": "Inventory On Order Quantity",
+              "description": "Inventory On Order Quantity"
+            },
+            "Inventory Positions": {
+              "name":"Inventory Positions",
+              "synonyms": ["Inventory Status", "inventories"],
+              "definition": "Inventory On Hand Quantity, Inventory On Order Quantity and Inventory In Transit Quantity",
+              "description": "Inventory On Hand Quantity, Inventory On Order Quantity and Inventory In Transit Quantity"
+            },
+            "stock to sales ratio": {
+              "name":"Stock to Sales Ratio",
+              "definition": "Inventory On Hand quantity divided by sales quantity",
+              "description": "Inventory On Hand quantity divided by sales quantity",
+              "calculation": "sales quantity/Inventory on Hand Quantity"
+            },
+            "EOH": {
+              "name":"EOH",
+              "synonyms":["End On Hand"],
+              "description":"End on Hand",
+              "definition": "DATASET CONTAINS DETAILED INFORMATION ABOUT INVENTORY QUANTITIES, ORGANIZED BY INDIVIDUAL ITEMS AND SPECIFIC DATES. WHEN SOMEONE ASKS FOR THE 'EOH' (END OF PERIOD) OF A PARTICULAR TIMEFRAME, SUCH AS 'JANUARY 2021' OR 'WEEK 3, 2021,'' THEY'RE SEEKING THE INVENTORY QUANTITY AT THE END OF THAT PERIOD, REFERENCING THE 'INVENTORY_ONHAND_QUANTITY' COLUMN. FOR INSTANCE, 'EOH OF JANUARY 2021' SIGNIFIES THE INVENTORY COUNT AT THE CONCLUSION OF JANUARY 31, 2021, WHILE 'EOH OF WEEK 3, 2021' INDICATES THE INVENTORY QUANTITY AT THE END OF THE THIRD WEEK OF 2021. SIMILARLY, IF THEY INQUIRE ABOUT THE 'EOH OF 2021,' IT PERTAINS TO THE INVENTORY AMOUNT ON DECEMBER 31, 2021. IT'S IMPORTANT TO NOTE THAT THE 'SUM' AGGREGATE FUNCTION ISN'T APPLICABLE ACROSS THIS TIME HIERARCHY; THEREFORE, EACH PERIOD'S INVENTORY QUANTITY NEEDS TO BE CALCULATED SEPARATELY. THIS UNDERSTANDING ALLOWS FOR PRECISE RETRIEVAL OF INVENTORY DATA FOR VARIOUS TIMEFRAMES BASED ON SPECIFIC DATES OR TIME INTERVALS.",
+              "examples": {
+                "example1":{
+                  "level":"year",
+                  "user_query":"Show me EOH of 2020",
+                  "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2020-12-31' THEN inventory_onhand_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2020-01-01', '2020-12-31') GROUP BY department_id, department_description ORDER BY department_id;"
+                },
+                "examples2":{
+                  "level":"month",
+                  "user_query":"Show me EOH of May 2020",
+                  "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2020-05-31' THEN inventory_onhand_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2020-05-01', '2020-05-31') GROUP BY department_id, department_description ORDER BY department_id;"
+                },
+                "example3":{
+                  "level":"week",
+                  "user_query":"Show me the EOH for 1st week of 2020",
+                  "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2020-01-07' THEN inventory_onhand_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2020-01-01', '2020-01-07') GROUP BY department_id, department_description ORDER BY department_id;"
+                },
+                "example4":{
+                  "level":"quarter",
+                  "user_query":"Show me the EOH of 2nd Quarter of 2020",
+                  "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2020-06-31' THEN inventory_onhand_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2020-03-01', '2020-06-31') GROUP BY department_id, department_description ORDER BY department_id;"
+                },
+                "example5":{
+                  "level":"day",
+                  "user_query":"Show me the EOH for 15 January 2020",
+                  "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2020-01-15' THEN inventory_onhand_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2020-01-15', '2020-01-15') GROUP BY department_id, department_description ORDER BY department_id;"
+                },
+                "example6":{
+                  "level":"halfyear",
+                  "user_query":"Show me EOH of 2nd Half of 2020",
+                  "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2020-12-31' THEN inventory_onhand_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2020-07-01', '2020-12-31') GROUP BY department_id, department_description ORDER BY department_id;"
+                }
+              }
+            },
+              "BOH":{
+                  "name":"BOH",
+                  "synonyms":["Beginning on Hand"],
+                  "definition": "DATASET CONTAINS DETAILED INFORMATION ABOUT INVENTORY QUANTITIES, ORGANIZED BY INDIVIDUAL ITEMS AND SPECIFIC DATES. WHEN SOMEONE ASKS FOR THE 'BOH' (BEGINNING OF PERIOD) OF A PARTICULAR TIMEFRAME, SUCH AS 'JANUARY 2021' OR 'WEEK 3, 2021,'' THEY'RE SEEKING THE INVENTORY QUANTITY AT THE BEGINNING OF THAT PERIOD, REFERENCING THE 'INVENTORY_BOH_QUANTITY' COLUMN. FOR INSTANCE, 'BOH OF JANUARY 2021' SIGNIFIES THE INVENTORY COUNT AT THE COMMENCEMENT OF JANUARY 1, 2021, WHILE 'BOH OF WEEK 3, 2021' INDICATES THE INVENTORY QUANTITY AT THE BEGINNING OF THE THIRD WEEK OF 2021. SIMILARLY, IF THEY INQUIRE ABOUT THE 'BOH OF 2021,' IT PERTAINS TO THE INVENTORY AMOUNT ON JANUARY 1, 2021. IT'S IMPORTANT TO NOTE THAT THE 'SUM' AGGREGATE FUNCTION ISN'T APPLICABLE ACROSS THIS TIME HIERARCHY; THEREFORE, EACH PERIOD'S INVENTORY QUANTITY NEEDS TO BE CALCULATED SEPARATELY. THIS UNDERSTANDING ALLOWS FOR PRECISE RETRIEVAL OF INVENTORY DATA FOR VARIOUS TIMEFRAMES BASED ON SPECIFIC DATES OR TIME INTERVALS.",
+                  "description": "Beginning on Hand",
+                  "examples":{
+                      "example1":{
+                          "level":"year",
+                          "user_query":"Show me BOH of 2021",
+                          "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2021-01-01' THEN inventory_BOH_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2021-01-01', '2021-12-31') GROUP BY department_id, department_description ORDER BY department_id;"
+                      },
+                      "examples2":{
+                          "level":"month",
+                          "user_query":"Show me BOH of May 2021",
+                          "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2021-05-01' THEN inventory_BOH_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2021-05-01', '2021-05-31') GROUP BY department_id, department_description ORDER BY department_id;"
+                        },
+                        "example3":{
+                          "level":"week",
+                          "user_query":"Show me the BOH of 1st week of 2020",
+                          "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2021-01-01' THEN inventory_BOH_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2021-01-01', '2021-01-07') GROUP BY department_id, department_description ORDER BY department_id;"
+                        },
+                        "example4":{
+                          "level":"quarter",
+                          "user_query":"Show me the BOH of 2nd Quarter of 2020",
+                          "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2020-03-01' THEN inventory_BOH_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2020-03-01', '2020-06-30') GROUP BY department_id, department_description ORDER BY department_id;"
+                        },
+                        "example5":{
+                          "level":"day",
+                          "user_query":"Show me the BOH for 15 January 2021",
+                          "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2021-01-15' THEN inventory_BOH_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2021-01-15', '2021-01-15') GROUP BY department_id, department_description ORDER BY department_id;"
+                        },
+                        "example6":{
+                          "level":"halfyear",
+                          "user_query":"Show me the BOH of 2nd half of 2021",
+                          "sql":"SELECT department_id, department_description, SUM(CASE WHEN date = '2021-07-01' THEN inventory_BOH_quantity ELSE 0 END) AS EOH FROM 'AI_DATA_MART'.dm_ai_sales_inventory WHERE date IN ('2021-07-01', '2021-12-31') GROUP BY department_id, department_description ORDER BY department_id;"
+                        }
+                  },
+                  "hidden":"false"
+              },
+              "Transfer in Quantity":{
+                "name":"Transfer in Quantity",
+                "definition":"INVENTORY_TRANSFER_IN_QUANTITY",
+                "description":"INVENTORY_TRANSFER_IN_QUANTITY"
+
+              },
+              "Transfer out Quantity":{
+                "name":"Transfer Out Quantity",
+                "definition":"INVENTORY_TRANSFER_OUT_QUANTITY",
+                "description":"INVENTORY_TRANSFER_OUT_QUANTITY"
+              },
+              "Transfer in Cost":{
+                "name":"Transfer in Cost",
+                "definition":"INVENTORY_TRANSFER_IN_COST_AMOUNT",
+                "description":"INVENTORY_TRANSFER_IN_COST_AMOUNT"
+              },
+              "Transfer out Cost":{
+                "name":"Transfer Out Cost",
+                "definition":"INVENTORY_TRANSFER_OUT_COST_AMOUNT",
+                "description":"INVENTORY_TRANSFER_OUT_COST_AMOUNT"
+              },
+              "Transfer in Retail":{
+                "name":"Transfer in Retail",
+                "definition":"INVENTORY_TRANSFER_IN_RETAIL_AMOUNT",
+                "description":"INVENTORY_TRANSFER_IN_RETAIL_AMOUNT"
+              },
+              "Transfer out Retail":{
+                "name":"Transfer out Retail",
+                "definition":"INVENTORY_TRANSFER_OUT_RETAIL_AMOUNT",
+                "description":"INVENTORY_TRANSFER_OUT_RETAIL_AMOUNT"
+              },
+              "Transfer Ins":{
+                "name":"Transfer Ins",
+                "definition": "It needs to show INVENTORY_TRANSFER_IN_QUANTITY, INVENTORY_TRANSFER_IN_COST_AMOUNT, INVENTORY_TRANSFER_IN_RETAIL_AMOUNT",
+                "description": "It needs to show INVENTORY_TRANSFER_IN_QUANTITY, INVENTORY_TRANSFER_IN_COST_AMOUNT, INVENTORY_TRANSFER_IN_RETAIL_AMOUNT"
+              },
+              "Transfer Outs":{
+                "name":"Transfer Outs",
+                "definition": "It needs to show INVENTORY_TRANSFER_OUT_QUANTITY, INVENTORY_TRANSFER_OUT_COST_AMOUNT, INVENTORY_TRANSFER_OUT_RETAIL_AMOUNT",
+                "description": "It needs to show INVENTORY_TRANSFER_OUT_QUANTITY, INVENTORY_TRANSFER_OUT_COST_AMOUNT, INVENTORY_TRANSFER_OUT_RETAIL_AMOUNT"
+              },
+              "Transfers":{
+                "name":"Transfers",
+                "definition": "INVENTORY_TRANSFER_OUT_QUANTITY, INVENTORY_TRANSFER_OUT_COST_AMOUNT, INVENTORY_TRANSFER_OUT_RETAIL_AMOUNT, INVENTORY_TRANSFER_IN_QUANTITY, INVENTORY_TRANSFER_IN_COST_AMOUNT, INVENTORY_TRANSFER_IN_RETAIL_AMOUNT",
+                "description": "INVENTORY_TRANSFER_OUT_QUANTITY, INVENTORY_TRANSFER_OUT_COST_AMOUNT, INVENTORY_TRANSFER_OUT_RETAIL_AMOUNT, INVENTORY_TRANSFER_IN_QUANTITY, INVENTORY_TRANSFER_IN_COST_AMOUNT, INVENTORY_TRANSFER_IN_RETAIL_AMOUNT"
+              },
+              "Top":{
+                  "name":"Top ",
+                  "description":"Top N Shows top N values from the data",
+                  "definition":"It should ignore NONE values during computation. top n must be calculated by computing the row number and on the basis of row number partition it should generate the top n datas. You should take top n only if top is accompanied by a number.",
+                  "examples":{
+                      "example":{
+                          "user_query":"Show me the top 10 sales by department on 2021 ",
+                          "sql":"WITH RankedSales AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY sales_amount DESC) AS row_num FROM sales WHERE sales_date >= '2021-01-01' AND sales_date <= '2021-12-31' AND sales_amount IS NOT NULL) SELECT * FROM RankedSales WHERE row_num <= 10;"
+                      }
+                  },
+                  "hidden":"false"
+            } 
+          }
+        },
+        "Inventory Adjustments":{
+          "name":"Inventory Adjustments",
+          "attributes": {
+            "Adjusted Quantity": {
+              "name":"Adjusted Quantity",
+              "synonyms": ["Inventory Adjustment Quantity", "Inventory Adjusted Quantity", "Adjusted Inventory Quantity", "Adjusted Quantity"],
+              "definition": "inventory adjustment quantity",
+              "description": "inventory adjustment quantity"
+              
+            },
+            "Adjusted Cost": {
+              "name":"Adjusted Cost",
+              "synonyms": ["Inventory Adjustment Cost", "Inventory Adjusted Cost", "adjusted cost", "adjustment cost", "Adjusted Inventory Cost"],
+              "definition": "Inventory adjustment Cost Amount",
+              "description": "Inventory adjustment Cost Amount"
+
+            },
+            "Adjusted Retail": {
+              "name":"Adjusted Retail",
+              "synonyms": ["inventory adjustment retail", "inventory adjustment retail", "adjustment retail", "adjusted retail amount", "Adjusted Inventory Retail"],
+              "definition": "Inventory adjustment Retail Amount",
+              "description": "Inventory adjustment Retail Amount"
+
+            },
+            "Adjustments": {
+              "name":"Adjustments",
+              "synonyms": ["Inventory Adjustments"],
+              "definition": "Adjustment Quantity, Adjustment Cost and Adjustment Retail",
+              "description": "Adjustment Quantity, Adjustment Cost and Adjustment Retail"
+            }
+          }
+        },
+        "Inventory Returned to Vendor":{
+          "name":"Inventory Returned to Vendor",
+          "attributes":{
+            "RTV Quantity": {
+              "name":"RTV Quantity",
+              "synonyms": ["Inventory Adjustment Quantity", "Inventory Adjusted Quantity", "Inventory RTV Quantity", "RTV Inventory Quantity"],
+              "definition": "inventory Return to Vendor quantity",
+              "description": "inventory Return to Vendor quantity"
+
+            },
+            "RTV Cost": {
+              "name":"RTV Cost",
+              "synonyms": ["Inventory return to vendor Cost", "return to vendor Cost", "Inventory RTV Cost", "RTV Inventory Cost"],
+              "definition": "Inventory adjustment Cost Amount",
+              "description": "Inventory adjustment Cost Amount"
+
+            },
+            "RTV Retail": {
+              "name":"RTV Retail",
+              "synonyms": ["inventory return to vendor retail", "inventory return to vendor retail", "return to vendor retail", "RTV Inventory Retail"],
+              "definition": "Inventory adjustment Retail Amount",
+              "description": "Inventory adjustment Retail Amount"
+
+            },
+            "RTVs": {
+              "name":"RTVs",
+              "synonyms": ["Return to Vendors", "Negative PO's", "Negative Purchases", "Negative Purchase Orders"],
+              "definition": "RTV Quantity, RTV Cost and RTV Retail",
+              "description": "RTV Quantity, RTV Cost and RTV Retail"
+            }
+          }
+        },
+        "Hierarchy":{
+          "name":"Hierarchy",
+          "attributes":{
+            "Top":{
+              "name":"Top ",
+              "description":"Top N Shows top N values from the data",
+              "definition":"It should ignore NONE values during computation. top n must be calculated by computing the row number and on the basis of row number partition it should generate the top n datas. You should take top n only if top is accompanied by a number.",
+              "examples":{
+                  "example":{
+                      "user_query":"Show me the top 10 sales by department on 2021 ",
+                      "sql":"WITH RankedSales AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY sales_amount DESC) AS row_num FROM sales WHERE sales_date >= '2021-01-01' AND sales_date <= '2021-12-31' AND sales_amount IS NOT NULL) SELECT * FROM RankedSales WHERE row_num <= 10;"
+                  }
+              },
+              "hidden":"false"
+            },
+            "Rank":{
+              "name":"Rank",
+              "definition": "It should ignore NONE values during computation. rank must be calculated by computing the row number and on the basis of row number partition it should generate the ranks.",
+              "description": "It should ignore NONE values during computation. rank must be calculated by computing the row number and on the basis of row number partition it should generate the ranks.",
+              "examples":{
+                "example":{
+                  "user_query":"Show me the rank of sales by department on 2021",
+                  "sql":"WITH RankedSales AS (SELECT department_id, department_description, SUM(sales_quantity) AS total_sales_quantity, SUM(sales_amount) AS total_sales_amount, DENSE_RANK() OVER (ORDER BY SUM(sales_amount) DESC) AS rank FROM 'AI_DATA_MART'.dm_rtl_stock_movement WHERE date >= '2021-01-01' AND date <= '2021-12-31' AND sales_amount IS NOT NULL GROUP BY department_id, department_description) SELECT department_id, department_description, total_sales_quantity, total_sales_amount, rank FROM RankedSales ORDER BY rank;"
+                }
+              }
+            },
+            "Bottom ":{
+              "name":"Bottom",
+              "definition":"It should ignore NONE values during computation. bottom n must be calculated by computing the row number and on the basis of row number partition it should generate the bottom n datas. You should take bottoom n only if bottom is accompanied by a number.",
+              "description":"It should ignore NONE values during computation. bottom n must be calculated by computing the row number and on the basis of row number partition it should generate the bottom n datas. You should take bottoom n only if bottom is accompanied by a number.",
+              "examples":{
+                "example":{
+                  "user_query":"Show me the Bottom 10 sales by department on 2021",
+                  "sql":"WITH RankedSales AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY sales_amount ASC) AS row_num FROM sales WHERE sales_date >= '2021-01-01' AND sales_date <= '2021-12-31' AND sales_amount IS NOT NULL) SELECT * FROM RankedSales WHERE row_num <= 10;"
+                }
+              }
+            }   
+          }
+    },
+    "time transformation":{
+        "name":"Time Transformation",
+        "attributes":{
+          " last year ": {
+            "name":"LY",
+            "synonyms": [" ly "],
+            "definition": " if the Current year is 2024, ly would refer to 2023",
+            "description": " if the Current year is 2024, ly would refer to 2023"
+          },
+          " ty ": {
+            "name":"TY",
+            "synonyms": ["this year"],
+            "definition": "If today is March 21,2024, This year is 2024",
+            "description": "this year",
+            "examples":{
+              "example":{
+                "user_query":"Show me the total sales this year",
+                "sql":"SELECT SUM(src.sales_amount) as total_sales FROM 'AI_DATA_MART'.dm_rtl_stock_movement src JOIN AI_DEMO_DB.AI_DATA_MART.DM_AI_TIME_TRANSFORMATIONS tt ON EXTRACT(YEAR FROM src.date) = tt.CURRENT_YEAR WHERE EXTRACT(YEAR FROM src.date) = tt.CURRENT_YEAR;"
+              }
+            }
+          },
+          " year to date ": {
+            "name":"year to date",
+            "synonyms": [" ytd "],
+            "definition": "YTD refers to the period of time beginning the first day of the current calendar year from the database up to the current date.For example: if the current date from dm_ai_time_transformations is 25 MAY 2021, it should take the date from 01   2021 to 24 MAY 2021",
+            "description": "YTD refers to the period of time beginning the first day of the current calendar year from the database up to the current date.",
+            "examples":{
+              "example":{
+                "user_query":"Show me the total sales YTD.",
+                "sql":"SELECT NVL(SUM(SALES_AMOUNT), 0) AS TOTAL_SALES_YTD FROM AI_DEMO_DB.AI_DATA_MART.DM_RTL_STOCK_MOVEMENT JOIN AI_DEMO_DB.AI_DATA_MART.DM_AI_TIME_TRANSFORMATIONS ON DATE >= TRUNC(CURRENT_BUSINESS_DATE, 'YYYY') WHERE DATE < CURRENT_BUSINESS_DATE"
+              }
+            }
+          },
+          " month to date ": {
+            "name":"month to date",
+            "synonyms": [" mtd "],
+            "definition": "MTD is a period that starts from the beginning of the current calendar month from database and ends at the current date, but it does not include the date of the present day. For example: if the current date in dm_ai_time_transformations is 25 MAY 2021, it should take the date from 01 MAY 2021 to 24 MAY 2021",
+            "description": "MTD is a period that starts from the beginning of the current calendar month from database and ends at the current date, but it does not include the date of the present day. For example: if the current date is 25 MAY 2021, it should take the date from 01 MAY 2021 to 24 MAY 2021",
+            "examples":{
+              "example":{
+                "user_query":"Show me the total sales MTD",
+                "sql":"SELECT NVL(SUM(SALES_AMOUNT), 0) AS TOTAL_SALES_MTD FROM AI_DEMO_DB.AI_DATA_MART.DM_RTL_STOCK_MOVEMENTJOIN AI_DEMO_DB.AI_DATA_MART.DM_AI_TIME_TRANSFORMATIONS ON DATE >= TRUNC(CURRENT_BUSINESS_DATE, 'MM') -- beginning of current monthWHERE DATE < CURRENT_BUSINESS_DATE"
+              }
+            }
+          }
+      }
+    }   
+  }
+}
+}
+
+
